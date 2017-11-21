@@ -8,7 +8,8 @@
     "server": "nodemon dist/server.js",
     "star": "node dist/server.js"
   },
-  "author": "",
+  "repository": "https://github.com/wchavarria03/my-management-api",
+  "author": "Walter Chavarria <wchavarria03@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.13.3",
