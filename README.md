@@ -27,6 +27,32 @@ npm run compile
 npm run server
 ```
 
+## Development Notes
+
+### DB
+
+Start mysql locally (installed with Homebrew)
+```
+mysql.server start
+```
+
+### Sequelize
+
+Need to reference the nodemodules sequelize if local
+```
+./node_modules/bin sequelize
+```
+
+#### Creating table
+Example
+```
+./node_modules/.bin/sequelize model:create --name Post --attributes title:string
+```
+#### Executing migrations
+To make our migration file changes visible in our db
+```
+./node_modules/.bin/sequelize db:migrate
+```
 
 ## Built With
 
