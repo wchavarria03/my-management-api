@@ -4,7 +4,6 @@ import {
 } from 'graphql';
 
 import userType from '../types/user';
-import getProjection from '../get-projection';
 
 export default {
   type: userType,

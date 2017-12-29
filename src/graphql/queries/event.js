@@ -4,7 +4,6 @@ import {
 } from 'graphql';
 
 import eventType from '../types/event';
-import getProjection from '../get-projection';
 
 export default {
   type: eventType,

@@ -4,7 +4,6 @@ import {
 } from 'graphql';
 
 import guestType from '../types/guest';
-import getProjection from '../get-projection';
 
 export default {
   type: guestType,
