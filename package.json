@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "babel src --out-dir dist",
-    "server": "nodemon dist/server.js",
-    "star": "node dist/server.js"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && babel ./src -d ./dist -s",
+    "start": "npm run build && node dist/server.js",
+    "debug": "node --debug dist/server.js"
   },
   "repository": "https://github.com/wchavarria03/my-management-api",
   "author": "Walter Chavarria <wchavarria03@gmail.com>",

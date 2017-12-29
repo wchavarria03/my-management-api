@@ -1,7 +1,15 @@
-import author from './author';
-import post from './post';
+import event from './event';
+import guest from './guest';
+import user from './user';
+import allUsers from './allUsers';
+import allEvents from './allEvents';
+import allGuests from './allGuests';
 
 export default {
-  author,
-  post
+  event,
+  guest,
+  user,
+  allUsers,
+  allGuests,
+  allEvents
 };

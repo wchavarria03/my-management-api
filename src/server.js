@@ -1,20 +1,20 @@
-// server.js
-
-/*  
-    Required modules {express and express-graphql} 
-    will be imported along with the schema object
-    from the schema.js file in src/schema.js 
-*/
-
 const express = require('express');
+const bodyParser = require('body-parser');
 const graphqlHTTP = require('express-graphql');
+const db = require('./db/models');
 import schema from './graphql';
 
 let port = process.env.PORT || 3000;
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use('/', graphqlHTTP({
   schema: schema,
-  graphiql: true //set to false if you don't want graphiql enabled
+  context: {
+    db
+  },
+  graphiql: true
 }));
 
 app.listen(port);

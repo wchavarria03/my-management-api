@@ -1,14 +1,25 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    Name: DataTypes.STRING,
-    Email: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    isDeleted: DataTypes.STRING,
   });
 
   User.associate = (models) => {
-    User.hasMany(models.Todo, {
+    User.hasMany(models.Event, {
       foreignKey: 'userId',
-      as: 'todos',
+      as: 'events',
     });
   };
   return User;
