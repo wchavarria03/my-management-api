@@ -11,6 +11,7 @@ const EventInputType = new GraphQLInputObjectType({
   name: "EventInput",
   description: "Event payload definition",
   fields: () => ({
+    id: { type: GraphQLID },
     title: { type: GraphQLString },
     type: { type: GraphQLString },
     place: { type: GraphQLString },

@@ -13,14 +13,19 @@ export default {
     },
   },
   resolve(root, { input }, context) {
-    delete input.id;
-
+    delete input.userId;
     if (!input.title) {
       throw new Error('Title required');
     }
-    if(!input.userId) {
-      throw new Error('User ID required');
+    if (!input.id) {
+      throw new Error('Id required');
     }
-    return context.db.Event.create(input);
+    // return context.db.Event.update(input);
+    return context.db.Event.update(
+      input,
+      { where: { id: input.id } }
+    ).then((data) => {
+      return context.db.Event.findById(input.id);
+    });
   }
 };

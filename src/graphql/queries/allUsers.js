@@ -4,7 +4,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-import userType from '../types/user';
+import userType from '../types/user/user';
 
 export default {
   type: new GraphQLList(userType),

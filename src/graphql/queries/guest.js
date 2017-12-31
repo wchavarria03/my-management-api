@@ -3,7 +3,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-import guestType from '../types/guest';
+import guestType from '../types/guest/guest';
 
 export default {
   type: guestType,

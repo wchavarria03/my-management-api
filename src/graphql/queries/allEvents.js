@@ -2,7 +2,7 @@ import {
   GraphQLList,
 } from 'graphql';
 
-import eventType from '../types/event';
+import eventType from '../types/event/event';
 
 export default {
   type: new GraphQLList(eventType),

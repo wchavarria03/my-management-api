@@ -7,7 +7,7 @@ let {
   GraphQLList
 } = require('graphql');
 
-import EventType from '../types/event';
+import EventType from '../event/event';
 
 const UserType = new GraphQLObjectType({
   name: "User",

@@ -7,7 +7,7 @@ let {
   GraphQLBoolean
 } = require('graphql');
 
-import EventType from '../types/event';
+import EventType from '../event/event';
 
 const GuestType = new GraphQLObjectType({
   name: "Guest",

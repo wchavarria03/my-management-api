@@ -11,6 +11,7 @@ const UserInputType = new GraphQLInputObjectType({
   name: "UserInput",
   description: "Guest payload definition",
   fields: () => ({
+    id: { type: GraphQLID },
     name: { type: GraphQLString },
     password: { type: GraphQLString },
     email: { type: GraphQLString },

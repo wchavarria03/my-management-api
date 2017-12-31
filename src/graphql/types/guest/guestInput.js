@@ -3,15 +3,15 @@ let {
   GraphQLString,
   GraphQLNonNull,
   GraphQLInt,
-  GraphQLBoolean
+  GraphQLBoolean,
+  GraphQLID
 } = require('graphql');
-
-import EventType from '../types/event';
 
 const GuestInputType = new GraphQLInputObjectType({
   name: "GuestInput",
   description: "Guest payload definition",
   fields: () => ({
+    id: { type: GraphQLID },
     name: { type: GraphQLString },
     email: { type: GraphQLString },
     phone: { type: GraphQLString },

@@ -6,8 +6,8 @@ let {
   GraphQLNonNull
 } = require('graphql');
 
-import UserType from '../types/user';
-import GuestType from '../types/guest';
+import UserType from '../user/user';
+import GuestType from '../guest/guest';
 
 const EventType = new GraphQLObjectType({
   name: "Event",
