@@ -1,7 +1,6 @@
 let {
-  GraphQLID,
+  GraphQLInputObjectType,
   GraphQLString,
-  GraphQLObjectType,
   GraphQLNonNull,
   GraphQLInt,
   GraphQLBoolean
@@ -9,11 +8,10 @@ let {
 
 import EventType from '../types/event';
 
-const GuestType = new GraphQLObjectType({
-  name: "Guest",
-  description: "This represent a guest",
+const GuestInputType = new GraphQLInputObjectType({
+  name: "GuestInput",
+  description: "Guest payload definition",
   fields: () => ({
-    id: { type: new GraphQLNonNull(GraphQLID) },
     name: { type: GraphQLString },
     email: { type: GraphQLString },
     phone: { type: GraphQLString },
@@ -22,13 +20,8 @@ const GuestType = new GraphQLObjectType({
     extraSpaces: { type: GraphQLInt },
     isConfirmed: { type: GraphQLBoolean },
     confirmedSpaces: { type: GraphQLInt },
-    event: {
-      type: EventType,
-      resolve: function(guest, params, context) {
-        return context.db.Event.findById(guest.eventId);
-      }
-    },
+    eventId: { type: GraphQLInt }
   })
 });
 
-export default GuestType;
+export default GuestInputType;
