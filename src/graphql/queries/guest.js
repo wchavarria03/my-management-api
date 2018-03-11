@@ -2,6 +2,7 @@ import {
   GraphQLID,
   GraphQLNonNull
 } from 'graphql';
+const Op = require('sequelize').Op;
 
 import guestType from '../types/guest/guest';
 
@@ -14,6 +15,8 @@ export default {
     }
   },
   resolve(root, params, context) {
-    return context.db.Guest.findById(params.id);
+    return context.db.Guest.findOne(
+      { where: {id: params.id, isDeleted: { [Op.not]: true }}}
+    );
   }
 };

@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     confirmedSpaces: {
       type: DataTypes.INTEGER,
     },
+    isDeleted: DataTypes.BOOLEAN,
   });
 
   Guest.associate = (models) => {

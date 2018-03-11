@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
+    isDeleted: DataTypes.BOOLEAN,
   });
 
   Event.associate = (models) => {

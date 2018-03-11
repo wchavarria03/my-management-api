@@ -14,6 +14,7 @@ export default {
   },
   resolve(root, { input }, context) {
     delete input.userId;
+    delete input.isDeleted;
     if (!input.title) {
       throw new Error('Title required');
     }

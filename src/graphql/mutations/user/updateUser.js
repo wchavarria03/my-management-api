@@ -13,6 +13,7 @@ export default {
     },
   },
   resolve(root, { input }, context) {
+    delete input.isDeleted;
     if (!input.name) {
       throw new Error('Name required');
     }

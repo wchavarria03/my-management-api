@@ -5,7 +5,7 @@ let {
   GraphQLObjectType,
   GraphQLNonNull
 } = require('graphql');
-
+const Op = require('sequelize').Op;
 import UserType from '../user/user';
 import GuestType from '../guest/guest';
 
@@ -27,7 +27,8 @@ const EventType = new GraphQLObjectType({
     guests: {
       type: new GraphQLList(GuestType),
       resolve: function(event, params, context) {
-        return context.db.Guest.findAll({where: { eventId: [event.id] }});
+        
+        return context.db.Guest.findAll({where: { eventId: [event.id], isDeleted: { [Op.not]: true } }});
       }
     }
   })

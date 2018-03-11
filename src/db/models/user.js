@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    isDeleted: DataTypes.STRING,
+    isDeleted: DataTypes.BOOLEAN,
   });
 
   User.associate = (models) => {

@@ -13,17 +13,12 @@ export default {
     },
   },
   resolve(root, { input }, context) {
-    delete input.eventId;
-    delete input.isDeleted;
-    if (!input.name) {
-      throw new Error('Title required');
-     }
      if (!input.id) {
       throw new Error('Id required');
      }
     // return context.db.Event.update(input);
     return context.db.Guest.update(
-      input,
+      { isDeleted: true },
       { where: { id: input.id } }
     ).then((data) => {
       return context.db.Guest.findById(input.id);

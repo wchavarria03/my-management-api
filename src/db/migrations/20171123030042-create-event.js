@@ -31,6 +31,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      isDeleted: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       userId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',

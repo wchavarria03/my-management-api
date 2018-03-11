@@ -6,7 +6,7 @@ let {
   GraphQLInt,
   GraphQLBoolean
 } = require('graphql');
-
+const Op = require('sequelize').Op;
 import EventType from '../event/event';
 
 const GuestType = new GraphQLObjectType({
@@ -25,7 +25,8 @@ const GuestType = new GraphQLObjectType({
     event: {
       type: EventType,
       resolve: function(guest, params, context) {
-        return context.db.Event.findById(guest.eventId);
+        // TODO
+        return context.db.Event.findOne({where: { id: guest.eventId, isDeleted: { [Op.not]: true } }});
       }
     },
   })

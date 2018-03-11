@@ -2,6 +2,7 @@ import {
   GraphQLID,
   GraphQLNonNull
 } from 'graphql';
+const Op = require('sequelize').Op;
 
 import userType from '../types/user/user';
 
@@ -14,6 +15,8 @@ export default {
     }
   },
   resolve(root, params, context) {
-    return context.db.User.findById(params.id);
+    return context.db.User.findById(
+      { where: {id: params.id, isDeleted: { [Op.not]: true }}}
+    );
   }
 };
