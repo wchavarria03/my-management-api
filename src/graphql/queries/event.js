@@ -3,6 +3,7 @@ import {
   GraphQLNonNull
 } from 'graphql';
 const Op = require('sequelize').Op;
+
 import eventType from '../types/event/event';
 
 export default {
